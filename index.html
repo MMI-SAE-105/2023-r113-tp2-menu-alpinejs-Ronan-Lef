@@ -1,76 +1,95 @@
 <!DOCTYPE html>
 <html lang="fr" x-data="{menuIsOpen: false}" :class="{noscroll:menuIsOpen,}">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Test menu</title>
-    <script defer src="https://unpkg.com/alpinejs"></script> 
-      <style>
-        .noscroll, 
-        .noscroll body {
-          overflow: hidden;
-        }
-      </style>
-    <style> 
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test menu</title>
+  <script defer src="https://unpkg.com/alpinejs"></script>
+  <style>
+    .noscroll,
+    .noscroll body {
+      overflow: hidden;
+    }
+  </style>
+  <style>
     .menu {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
-      height: 100vh; 
+      height: 100vh;
       background: #fff;
       display: grid;
       place-content: center;
     }
+
     .header_menuBtn {
       position: relative;
       z-index: 10;
     }
-    </style>
-  </head>
-  <body>
-    <!-- https://emmet.io/ -->
-    <!-- header>h1{Test de menu} -->
-    <header>
-      <button aria-controls="mainNav" 
-      @click="menuIsOpen = ! menuIsOpen"
-      class="header_menuBtn"
-      > 
-        menu
-      </button>
-      <h1>Test de menu</h1>
-      <nav id="mainNav" 
-      x-show="menuIsOpen" 
-      x-transition.duration.800ms
-      class="menu"
-      >
-        <ul>
-          <li><a href="#">item 1</a></li>
-          <li><a href="#">item 2</a></li>
-          <li><a href="#">item 3</a></li>
-        </ul>
-      </nav>
-    </header>
-    <!-- h2>lorem2^p>lorem -->
-    <h2>Lorem, ipsum.</h2>
-    <p>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat
-      mollitia adipisci alias error laboriosam numquam incidunt magni eum eos
-      nemo aliquid pariatur quam voluptates animi laudantium, aperiam
-      consectetur nobis enim.
-    </p>
-    <dl>
+  </style>
+</head>
+
+<body>
+  <!-- https://emmet.io/ -->
+  <!-- header>h1{Test de menu} -->
+  <header>
+    <button aria-controls="mainNav" @click="menuIsOpen = ! menuIsOpen" class="header_menuBtn">
+      menu
+    </button>
+    <h1>Test de menu</h1>
+    <nav id="mainNav" x-show="menuIsOpen" x-transition.duration.800ms class="menu">
+      <ul>
+        <li><a href="#">item 1</a></li>
+        <li><a href="#">item 2</a></li>
+        <li><a href="#">item 3</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- h2>lorem2^p>lorem -->
+  <h2>Lorem, ipsum.</h2>
+
+  <p>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat
+    mollitia adipisci alias error laboriosam numquam incidunt magni eum eos
+    nemo aliquid pariatur quam voluptates animi laudantium, aperiam
+    consectetur nobis enim.
+  </p>
+
+  <dl x-data="{loremIsOpen: false,}">
+    <button aria-controls="Lorem" 
+    @click="loremIsOpen = ! loremIsOpen" 
+    class="button_loremBtn">
       <dt>Lorem.</dt>
+    </button>
+    <nav id="Lorem" x-show="loremIsOpen" class="texte">
       <dd>Lorem ipsum dolor sit amet.</dd>
-    </dl>
-    <dl>
+    </nav>
+  </dl>
+
+  <dl x-data="{eiusIsOpen: false,}">
+    <button aria-controls="Eius" 
+    @click="eiusIsOpen = ! eiusIsOpen" 
+    class="button_eiusBtn">
       <dt>Eius.</dt>
+    </button>
+    <nav id="Eius" x-show="eiusIsOpen" class="texte">
       <dd>Reprehenderit nulla iste repellat excepturi.</dd>
-    </dl>
-    <dl>
-      <dt>Omnis!</dt>
-      <dd>Est, maiores? Perferendis, modi a.</dd>
-    </dl>
-  </body>
+    </nav>
+  </dl>
+
+  <dl x-data="{omnisIsOpen: false,}">
+    <button aria-controls="Omnis"
+    @click="omnisIsOpen = ! omnisIsOpen"
+    class="button_omnisBtn">
+    <dt>Omnis!</dt>
+  </button>
+  <nav id="Omnis" x-show="omnisIsOpen" class="texte">
+    <dd>Est, maiores? Perferendis, modi a.</dd>
+  </nav>
+  </dl>
+</body>
+
 </html>
